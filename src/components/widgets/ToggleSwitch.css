@@ -1,0 +1,117 @@
+.toggle-switch-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.toggle-switch-wrapper.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.toggle-switch-wrapper.disabled .toggle-switch-slider {
+  cursor: not-allowed;
+}
+
+.toggle-switch--sm .toggle-switch-slider {
+  width: 36px;
+  height: 20px;
+}
+.toggle-switch--sm .toggle-switch-slider::after {
+  width: 14px;
+  height: 14px;
+}
+
+.toggle-switch--md .toggle-switch-slider {
+  width: 48px;
+  height: 24px;
+}
+.toggle-switch--md .toggle-switch-slider::after {
+  width: 18px;
+  height: 18px;
+}
+
+.toggle-switch--lg .toggle-switch-slider {
+  width: 60px;
+  height: 30px;
+}
+.toggle-switch--lg .toggle-switch-slider::after {
+  width: 24px;
+  height: 24px;
+}
+
+.toggle-switch-control {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.toggle-switch-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e1;
+  border-radius: 9999px;
+  transition: 0.3s;
+}
+.toggle-switch-slider::after {
+  position: absolute;
+  content: "";
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.toggle-switch-slider.checked {
+  background-color: #6366f1;
+}
+.toggle-switch-slider.checked::after {
+  transform: translateX(100%);
+}
+.toggle-switch-slider--indigo.checked {
+  background-color: #6366f1;
+}
+.toggle-switch-slider--blue.checked {
+  background-color: #3b82f6;
+}
+.toggle-switch-slider--green.checked {
+  background-color: #10b981;
+}
+.toggle-switch-slider--purple.checked {
+  background-color: #8b5cf6;
+}
+
+.toggle-switch-text {
+  flex: 1;
+}
+.toggle-switch-text .toggle-switch-title {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+.toggle-switch-text .toggle-switch-description {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+@media (max-width: 640px) {
+  .toggle-switch-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}/*# sourceMappingURL=ToggleSwitch.css.map */

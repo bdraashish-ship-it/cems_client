@@ -1,0 +1,61 @@
+/* ================= GRID WRAPPER ================= */
+
+.grid-wrapper {
+  display: grid;
+  gap: var(--grid-gap, 16px);
+
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--grid-min, 120px), 1fr)
+  );
+
+  align-items: stretch; /* SAME HEIGHT CHILDREN */
+}
+
+/* ================= GRID ITEM ================= */
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ================= SIZE VARIANTS ================= */
+
+.grid-sm {
+  --grid-min: 80px;
+  --grid-gap: 8px;
+}
+
+.grid-md {
+  --grid-min: 120px;
+  --grid-gap: 12px;
+}
+
+.grid-lg {
+  --grid-min: 160px;
+  --grid-gap: 16px;
+}
+
+.grid-xl {
+  --grid-min: 220px;
+  --grid-gap: 20px;
+}
+
+/* ================= HELPERS ================= */
+
+.grid-square {
+  aspect-ratio: 1 / 1;
+}
+
+.grid-rect {
+  aspect-ratio: 4 / 3;
+}
+
+/* ================= MOBILE SAFETY ================= */
+
+@media (max-width: 640px) {
+  .grid-wrapper {
+    --grid-min: 100%;
+  }
+}

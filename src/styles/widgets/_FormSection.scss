@@ -1,0 +1,106 @@
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 28px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  width: 100%;
+
+  /* ================= HEADER ================= */
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+  }
+
+  &__description {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  /* ================= CONTENT ================= */
+  &__content {
+    display: grid;
+    gap: 16px;
+    padding-top: 8px;
+
+    /* AUTO MODE (default) */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+
+    /* Scroll handling */
+    max-height: 60vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* Hide scrollbar */
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  /* ================= COLUMN MODES ================= */
+  .cols-1 {
+    grid-template-columns: 1fr;
+  }
+
+  .cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Normalize children */
+  &__content > * {
+    min-width: 0;
+  }
+}

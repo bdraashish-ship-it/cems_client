@@ -1,0 +1,70 @@
+/* =========================================================
+   COLORS
+========================================================= */
+$background_primary: #f5f7fa;
+$background_secondary: #ce0909;
+$color_info:#0436db;
+$success: #16a34a;
+$danger: #dc2626;
+$background_3rd:#eff2f6;
+$white: #ffffff;
+$black: #000000;
+
+$primary_font_color: #444;
+$muted_font_color: #777;
+
+/* Borders & shadows */
+$border_light: rgba(0, 0, 0, 0.08);
+$border_dark: rgba(255, 255, 255, 0.12);
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+$font-primary: "Nunito Sans",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol";
+
+/* =========================================================
+   FONT SIZES — NAVIGATION
+========================================================= */
+$nav-logo-font-size: 29px;
+$nav-logo-sub-font-size: 15px;
+
+$nav-item-font-size: 18px;
+$nav-dropdown-font-size: 15px;
+
+$nav-icon-size: 18px;
+
+/* =========================================================
+   SPACING & SIZES
+========================================================= */
+$nav-height: 70px;
+$nav-padding-x: 30px;
+
+$dropdown-radius: 8px;
+$dropdown-padding-y: 8px;
+
+/* =========================================================
+   ANIMATION & TRANSITIONS
+========================================================= */
+$transition-fast: 0.2s ease;
+$transition-medium: 0.25s ease;
+$transition-slow: 0.35s ease;
+
+/* =========================================================
+   Z-INDEX SCALE
+========================================================= */
+$z-nav: 100;
+$z-dropdown: 1000;
+$z-overlay: 2000;
+
+$max-width:1440px;
+$layout-padding:   0 30px;

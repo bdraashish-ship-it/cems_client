@@ -1,0 +1,118 @@
+@use "../abstracts/variables" as *;
+
+
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px; // slightly more breathing space
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      color: $background_secondary;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+
+  /* ---------------- Search ---------------- */
+  &__search {
+    position: relative;
+
+    .nav-icons__search-popover {
+      position: absolute;
+      top: 110%;
+      right: 0;
+      background: $white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: all 0.25s ease;
+
+      input {
+        border: 1px solid #ccc;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 0.9em;
+        width: 180px;
+        outline: none;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          border-color: $background_secondary;
+        }
+      }
+    }
+
+    &.is-open .nav-icons__search-popover {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  /* ---------------- Notifications ---------------- */
+  &__notifications {
+    position: relative;
+
+    .nav-icons__badge {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: $background_secondary;
+      color: $white;
+      font-size: 0.7em;
+      font-weight: 600;
+      border-radius: 50%;
+      padding: 2px 6px;
+      min-width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  /* ---------------- User ---------------- */
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .nav-icons__avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid $background_secondary;
+    }
+
+    .nav-icons__username {
+      font-size: 0.9em;
+      font-weight: 500;
+      color: $primary_font_color;
+      white-space: nowrap;
+    }
+  }
+}
+.nav-icons__user-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}

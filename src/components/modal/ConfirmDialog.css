@@ -1,0 +1,136 @@
+/* Overlay */
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.2s forwards;
+}
+
+/* Modal Content */
+.confirm-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background-color: #fff;
+  padding: 36px 40px;
+  border-radius: 16px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px;
+  z-index: 1001;
+  opacity: 0;
+  animation: scaleIn 0.25s forwards;
+  transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+/* Success/Error states */
+.success-modal {
+  border: 1px solid #16a34a;
+}
+.error-modal {
+  border: 1px solid #dc2626;
+  background-color: #fff5f5;
+}
+
+/* Centered Icon */
+.confirm-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.confirm-icon {
+  width: 48px;
+  height: 48px;
+  animation: popIn 0.35s ease forwards;
+}
+.success-icon {
+  color: #16a34a;
+}
+.error-icon {
+  color: #dc2626;
+}
+
+/* Title */
+.confirm-title {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* Description */
+.confirm-description {
+  font-size: 16px;
+  line-height: 1.7;
+  text-align: center;
+  margin-bottom: 28px;
+}
+.success-modal .confirm-description {
+  color: #16a34a;
+  font-weight: 600;
+    font-size: 20px;
+
+    text-transform: capitalize;
+}
+.error-modal .confirm-description {
+  color: #dc2626;
+  font-weight: 600;
+  font-size: 20px;
+      text-transform: capitalize;
+}
+
+/* Buttons */
+.confirm-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+.confirm-buttons button:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .confirm-content {
+    width: 90%;
+    padding: 24px;
+  }
+  .confirm-title {
+    font-size: 18px;
+  }
+  .confirm-description {
+    font-size: 14px;
+  }
+}

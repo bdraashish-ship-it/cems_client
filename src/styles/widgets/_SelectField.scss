@@ -1,0 +1,123 @@
+
+
+.select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  &.is-open {
+    z-index: 50;
+  }
+
+  &__label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #374151;
+
+    span {
+      color: #dc2626;
+      margin-left: 4px;
+    }
+  }
+
+  &__trigger {
+    height: 42px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: #9ca3af;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    }
+
+    .placeholder {
+      color: #9ca3af;
+    }
+
+    svg {
+      color: #6b7280;
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &.is-open &__trigger svg {
+    transform: rotate(180deg);
+  }
+
+  &__menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    z-index: 100;
+    max-height: 250px;
+    overflow-y: auto;
+  }
+
+  &__option {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: #f3f4f6;
+    }
+
+    &.is-selected {
+      background: #eef2ff;
+      color: #4f46e5;
+      font-weight: 500;
+    }
+
+    svg {
+      color: #4f46e5;
+    }
+  }
+
+  &__error {
+    font-size: 0.75rem;
+    color: #dc2626;
+  }
+
+  &.is-disabled {
+  opacity: 0.6;
+
+    .select__trigger {
+      cursor: not-allowed;
+      background: #f3f4f6;
+      border-color: #e5e7eb;
+      color: #9ca3af;
+    }
+     /* Prevent opening */
+    .select__menu {
+      display: none;
+         pointer-events: none;
+    }}
+
+  &.has-error &__trigger {
+    border-color: #dc2626;
+  }
+}

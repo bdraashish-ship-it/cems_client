@@ -1,0 +1,32 @@
+.dir-btn {
+  position: absolute;
+  z-index: 30;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+.dir-btn:hover {
+  transform: scale(1.08);
+}
+.dir-btn.left {
+  left: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.dir-btn.right {
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.dir-btn.top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}/*# sourceMappingURL=directionsScroll.css.map */

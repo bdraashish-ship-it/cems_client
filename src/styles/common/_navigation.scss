@@ -1,0 +1,296 @@
+@use "../abstracts/variables" as *;
+
+
+:root {
+  --nav-bg: #ffffff;
+  --nav-text: #333;
+  --nav-muted: #666;
+  --nav-border: rgba(0, 0, 0, 0.1);
+  --dropdown-bg: #ffffff;
+  --hover-bg: rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0 30px;
+  background: var(--nav-bg);
+  color: var(--nav-text);
+  font-family: $font-primary;
+  box-shadow: 0 1px 2px var(--nav-border);
+
+  /* ---------------- Logo ---------------- */
+  &__logo {
+    font-weight: 700;
+    font-size: $nav-logo-font-size;
+    color: $background_secondary;
+
+    span {
+      display: block;
+      font-size: $nav-logo-sub-font-size;
+      font-weight: 400;
+      color: var(--nav-muted);
+    }
+  }
+
+  /* ---------------- Menu ---------------- */
+  &__menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .nav__item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 6px;
+      font-size: $nav-item-font-size;
+      font-weight: 600;
+      color: var(--nav-text);
+      cursor: pointer;
+      transition: color 0.25s ease;
+
+      &:hover {
+        color: $background_secondary;
+      }
+
+      /* ---------- Active Menu ---------- */
+      &.is-active {
+        color: $background_secondary;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 10%;
+          width: 80%;
+          height: 2px;
+          background: $background_secondary;
+          border-radius: 2px;
+        }
+      }
+
+      /* ---------- Dropdown ---------- */
+      &.dropdown {
+        .dropdown-menu {
+          position: absolute;
+          top: calc(110% + 12px);
+          left: 0;
+          min-width: 230px;
+          padding: 8px 0;
+          background: var(--dropdown-bg);
+          border-radius: 0 0 8px 8px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          list-style: none;
+          z-index: 1000;
+
+          /* animation */
+          opacity: 0;
+          transform: translateY(-8px);
+          pointer-events: none;
+          transition: opacity 0.25s ease, transform 0.25s ease;
+
+          .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            font-size: $nav-dropdown-font-size;
+            font-weight: 500;
+            color: var(--nav-text);
+            white-space: nowrap;
+            border-radius: 4px;
+            transition: background 0.25s ease, color 0.25s ease;
+
+            &:hover {
+              background: var(--hover-bg);
+            }
+
+            /* badge */
+      .project-count {
+    margin-left: auto;
+    background: #e5e7eb;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+    min-width: 26px;
+    text-align: center;
+  }
+
+
+          }
+        }
+      }
+
+      /* ---------- Open State ---------- */
+      &.is-open {
+        .dropdown-menu {
+          opacity: 1;
+          transform: translateY(0);
+          pointer-events: auto;
+        }
+      }
+    }
+  }
+
+  /* ---------------- Submenu ---------------- */
+  .has-submenu {
+    display: flex;
+    // justify-content: space-evenly;
+    
+    align-items: left;
+    font-weight: 600;
+  }
+  .submenu-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+  }
+  .sub-dropdown-menu {
+margin-left: 20px;
+    padding: 4px 0;
+    list-style: none;
+
+    opacity: 0;
+    transform: translateY(-6px);
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      max-height 0.3s ease;
+
+    &.is-open {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 500px;
+    }
+
+    .dropdown-item {
+      padding: 8px 16px;
+      font-size: 0.95em;
+      color: var(--nav-text);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.25s ease, color 0.25s ease;
+
+      &:hover {
+        background: var(--hover-bg);
+        color: $primary_font_color;
+      }
+    }
+  }
+
+  /* ---------------- Status Colors ---------------- */
+  .status-running svg {
+    color: #2ecc71;
+  }
+
+  .status-completed svg {
+    color: #3498db;
+  }
+
+  .status-hold svg {
+    color: #f39c12;
+  }
+
+  .status-cancelled svg {
+    color: #e74c3c;
+  }
+
+  .status-running:hover {
+    background: rgba(46, 204, 113, 0.15);
+  }
+
+  .status-completed:hover {
+    background: rgba(52, 152, 219, 0.15);
+  }
+
+  .status-hold:hover {
+    background: rgba(243, 156, 18, 0.15);
+  }
+
+  .status-cancelled:hover {
+    background: rgba(231, 76, 60, 0.15);
+  }
+
+  /* ---------------- Right Icons ---------------- */
+  &__icons {
+    display: flex;
+  gap: 14px;
+
+    svg {
+      cursor: pointer;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+  }
+}
+
+/* =========================================================
+   SUBMENU TOGGLE ICON
+========================================================= */
+.submenu-toggle-icon {
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    transform: scale(1.2);
+    color: $background_secondary;
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}
+
+/* =========================================================
+   KEYBOARD ACCESSIBILITY
+========================================================= */
+.nav__item:focus-visible,
+.dropdown-item:focus-visible {
+  outline: 2px solid $background_secondary;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.color_info{
+  color: $color_info;
+}.submenu-title.full-clickable {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+
+.submenu-title.full-clickable:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.submenu-toggle-icon {
+  margin-left: auto;
+  transition: transform 0.2s;
+}
+
+.sub-dropdown-menu.is-open ~ .submenu-toggle-icon,
+.submenu-title.full-clickable:hover .submenu-toggle-icon {
+  transform: rotate(90deg);
+}

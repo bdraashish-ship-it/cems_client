@@ -1,0 +1,143 @@
+// ============================================================================
+// InputField + Date Picker Styles
+// ============================================================================
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+
+  &.has-error {
+    .input-field__wrapper {
+      border-color: #dc2626; // red-600
+    }
+
+    .input-field__label {
+      color: #dc2626;
+    }
+
+    .input-field__error {
+      display: block;
+    }
+  }
+
+  // ─── Label ────────────────────────────────────────
+  &__label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #374151; // gray-700
+
+    .required {
+      color: #dc2626;
+      margin-left: 4px;
+      font-size: 0.8rem;
+    }
+  }
+
+  // ─── Wrapper (border container) ───────────────────
+  &__wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #d1d5db; // gray-300
+    border-radius: 8px;
+    background: white;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      border-color: #9ca3af; // gray-400
+    }
+
+    &:focus-within {
+      border-color: #2563eb; // blue-600
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+  }
+
+  // ─── Left Icon ────────────────────────────────────
+  &__icon {
+    position: absolute;
+    left: 12px;
+    color: #6b7280; // gray-500
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  // ─── Input Control ────────────────────────────────
+  &__control {
+    width: 100%;
+    height: 40px;
+    padding: 0 40px 0 40px;           // space for icon + toggle
+    border: none;
+    background: transparent;
+    font-size: 0.9rem;
+    color: #111827;
+    outline: none;
+
+    &::placeholder {
+      color: #9ca3af;
+    }
+
+    &:disabled {
+      background: #f3f4f6;
+      color: #9ca3af;
+      cursor: not-allowed;
+      opacity: 0.75;
+    }
+
+    // ─── Date input adjustments ─────────────────────
+    &[type="date"] {
+      color-scheme: light dark;
+
+      &::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        opacity: 0.5;
+        filter: brightness(0.9);
+        width: 20px;
+        height: 20px;
+      }
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-clear-button {
+        display: none;
+      }
+
+      &:focus::-webkit-calendar-picker-indicator {
+        opacity: 1;
+      }
+    }
+  }
+
+  // ─── Password Toggle ──────────────────────────────
+  &__toggle {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+
+    &:hover {
+      color: #374151;
+    }
+
+    &:focus {
+      outline: none;
+      color: #2563eb;
+    }
+  }
+
+  // ─── Error Message ────────────────────────────────
+  &__error {
+    display: none;
+    font-size: 0.75rem;
+    color: #dc2626;
+    margin-top: 2px;
+  }
+}
+

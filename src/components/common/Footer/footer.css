@@ -1,0 +1,132 @@
+.footer {
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  padding: 12px 32px;
+  position: relative;
+  z-index: 10;
+  margin-top: auto;
+}
+
+.footer__container {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer__left, .footer__right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer__copyright {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.footer__brand {
+  font-weight: 700;
+  color: #ce0909;
+}
+
+.footer__divider {
+  width: 1px;
+  height: 16px;
+  background-color: #e5e7eb;
+}
+
+.footer__version {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-family: monospace;
+  margin: 0;
+}
+
+.footer__center {
+  flex: 1;
+  text-align: center;
+}
+
+.footer__tagline {
+  font-size: 0.875rem;
+  color: #4b5563;
+  font-weight: 500;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.heart-icon {
+  color: #ef4444;
+  animation: heartBeat 1.5s infinite;
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+.footer__links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer__link {
+  color: #6b7280;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.footer__link:hover {
+  color: #ce0909;
+  transform: translateY(-2px);
+}
+
+.footer__status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #059669;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
+  animation: pulseStatus 2s infinite;
+}
+
+@keyframes pulseStatus {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@media (max-width: 768px) {
+  .footer__container {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px 0;
+  }
+  .footer__divider {
+    display: none;
+  }
+}
